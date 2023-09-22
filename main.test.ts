@@ -33,8 +33,9 @@ else {
 let actual04 = binarySearch([1,2,3,4,5], 5);
 let expect04 = 4
 if(actual04 != expect04) {
-  console.log("ac")
+  console.log("ac");
   console.log("Failed test");
+  console.log(actual04)
 }
 else {
   console.log("Passing test found value.");
