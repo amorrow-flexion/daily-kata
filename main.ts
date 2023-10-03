@@ -4,49 +4,41 @@
 //   chopArray.push(i);
 // }
 
-function split(startIndex: number, endIndex: number, arr: number[], val: number) {
-  if (startIndex >= endIndex){
-    return -1; 
-  }
+// function split(startIndex: number, endIndex: number, arr: number[], val: number) {
+//   if (startIndex >= endIndex) {
+//     return -1;
+//   }
+// }
 
-
-}
-
-export function binarySearch(arr: number[], val: number): number {
-
-  if (arr.length === 0 ) {
+export function binarySearch(arr: number[], val: number, startIndex: number = 0, endIndex: number = arr.length - 1): number {
+  if (arr.length === 0) {
     return -1;
   }
-let midIndex;
-  if (arr.length===1){
-    midIndex=0;
+
+  const midPointIndex = Math.floor(endIndex - startIndex / 2);
+  const midPointValue = arr[midPointIndex];
+
+  if (midPointValue === val) {
+    return midPointIndex;
+  } else if (endIndex - startIndex === 0) {
+    return -1;
+  } else if (midPointValue < val) {
+    // search right side
+    return binarySearch(arr, val, midPointIndex + 1, endIndex);
   } else {
-    midIndex = Math.floor(arr.length / 2.0);
+    // search left side
+    return binarySearch(arr, val, startIndex, midPointIndex);
   }
-  const middleValue = arr[midIndex];
-  const 
-  const left = arr.slice(0, midIndex);
-  const right = arr.slice(midIndex, arr.length);
 
-  console.log(left);
-  console.log(right);
-  console.log(midIndex);
-  if (middleValue === val) {
-    return midIndex;
-  } else if (arr.length === 1) {
-    return -1;
-  }
-  else if (middleValue > val) {
-    return binarySearch(left, val);
-  } else  {
-    return binarySearch(right, val);
-  }
+
+
+
+  return 0;
 }
 
 // [1,2,3,4,5] 5
 
-
-// 0 4 
+// 0 4
 //  4 - 0 / 2 = 2
 //  ^3 == ^5
 //  ^3 < ^5
