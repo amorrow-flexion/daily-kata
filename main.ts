@@ -10,7 +10,15 @@
 //   }
 // }
 
-export function binarySearch(arr: number[], val: number, startIndex: number = 0, endIndex: number = arr.length - 1): number {
+///testing small change for mob
+// testing again
+
+export function binarySearch(
+  arr: number[],
+  val: number,
+  startIndex: number = 0,
+  endIndex: number = arr.length - 1
+): number {
   if (arr.length === 0) {
     return -1;
   }
@@ -29,11 +37,6 @@ export function binarySearch(arr: number[], val: number, startIndex: number = 0,
     // search left side
     return binarySearch(arr, val, startIndex, midPointIndex);
   }
-
-
-
-
-  return 0;
 }
 
 // [1,2,3,4,5] 5
